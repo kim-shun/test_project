@@ -15,3 +15,17 @@ class Test(models.Model):
 
     def __str__(self):
         return self.title
+
+class TestPersonal(models.Model):
+    """テストに紐づくモデル"""
+    name = models.ForeignKey(Test,verbose_name='名前', related_name="test_name",on_delete=models.PROTECT)
+    color = models.CharField(verbose_name='好きな色', max_length=40)
+    food = models.CharField(verbose_name='好きな食べ物', max_length=40)
+    created_at = models.DateTimeField(verbose_name='作成日時', auto_now_add=True)
+    updated_at = models.DateTimeField(verbose_name='更新日時', auto_now=True)
+
+    class Meta:
+        verbose_name_plural = 'TestPersonal'
+
+    def __str__(self):
+        return self.color

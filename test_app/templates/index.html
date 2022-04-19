@@ -6,15 +6,25 @@
 </head>
 <body>
 	<h1>Hello World</h1>
-  {% for test in test_list %}
   <div>
-  {{ test.name }}
-  {{ test.age }}
-  {{ test.title }}
-  {{ test.content }}
-  </div>
+  {% for test in test_list %}
+    <div>
+      {{ test.name }}
+      {{ test.age }}
+      {{ test.title }}
+      {{ test.content }}
+    </div>
+    {% for t in test.test_name.all %}
+      <div>
+      {{ t }}
+      </div>
+      {% empty %}
+      <p>テストデータがありません</p> 
+    {% endfor%}
   {% empty %}
-  <p>テストデータがありません</p>
+    <p>テストデータがありません</p> 
   {% endfor %}
+  </div>
+
 </body>
 </html>
