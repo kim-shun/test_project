@@ -7,10 +7,12 @@
 <body>
 	<h1>Hello World</h1>
   {% for test in test_list %}
+  <div>
   {{ test.name }}
   {{ test.age }}
   {{ test.title }}
   {{ test.content }}
+  </div>
   {% empty %}
   <p>テストデータがありません</p>
   {% endfor %}

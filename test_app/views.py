@@ -1,10 +1,15 @@
 from django.views import generic
-from .models import Test
+#from .models import Test
+from test_app.serveces import testService
 
 class IndexView(generic.ListView):
-  model = Test
+  #test_lists = testService.testsService
+  #model = Test
   template_name = "index.html"
 
   def get_queryset(self):
-    tests = Test.objects.all().order_by('-created_at')
+    tests = testService.testsService
     return tests
+  # def get_queryset(self):
+  #   tests = Test.objects.all().order_by('-created_at')
+  #   return tests
