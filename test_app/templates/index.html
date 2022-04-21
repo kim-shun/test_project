@@ -1,18 +1,27 @@
-<!DOCTYPE html>
-<html lang="ja">
+{% extends 'base.html' %}
+{% load static %}
+{% block header%}
 <head>
     <meta charset="UTF-8">
     <title>トップページ</title>
 </head>
+{% endblock %}
+{% block contents %}
 <body>
 	<h1>Hello World</h1>
   <div>
-  {% for test in test_list %}
+    {% for test in tests %}
+      {{test.name }}
+    {% endfor %}
+  {% comment %} {% for test in test_list %}
     <div>
-      {{ test.name }}
-      {{ test.age }}
-      {{ test.title }}
-      {{ test.content }}
+      <select name="prefecture" id="pref">
+        <option value="" selected>選択してください</option>
+        <option value="1">{{ test.name }}</option>
+        <option value="2">{{ test.age }}</option>
+        <option value="3">{{ test.title }}</option>
+        <option value="4">{{ test.content }}</option>
+    </select>
     </div>
     {% for t in test.test_name.all %}
       <div>
@@ -24,7 +33,17 @@
   {% empty %}
     <p>テストデータがありません</p> 
   {% endfor %}
-  </div>
-
+  </div> {% endcomment %}
+  <label for="pref">好きな漫画</label><br>
+      {% for m in mangas %}
+        {{ m.manga }}
+      {% endfor %}
+     <select name="prefecture" id="pref">
+     <option value="" selected>選択してください</option>
+     <option value="1">あ</option>
+     <option value="2">青森県</option>
+     <option value="3">岩手県</option>
+     </select>
 </body>
-</html>
+{% endblock %}
+

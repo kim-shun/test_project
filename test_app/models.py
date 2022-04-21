@@ -29,3 +29,10 @@ class TestPersonal(models.Model):
 
     def __str__(self):
         return self.color
+
+class Manga(models.Model):
+    """選択肢"""
+    manga = models.CharField(verbose_name='好きな漫画', max_length=40)
+
+    
+    
